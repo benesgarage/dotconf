@@ -4,4 +4,5 @@
 # 3. copy this file to your home folder
 # 4. Done! Use `dotconf` to check/update all your versioned dotconf files!
 
-alias dotconf='/usr/bin/git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
+# git command for all dotconf files, anywhere
+alias dot='/usr/bin/git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
