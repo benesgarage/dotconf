@@ -6,3 +6,4 @@
 
 # git command for all dotconf files, anywhere
 alias dot='/usr/bin/git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
+alias vw="vim -c ':VimwikiIndex'"

@@ -34,3 +34,6 @@ call vundle#end()
 
 " File type detection 
 filetype plugin indent on
+
+" Force vimwiki to use MD
+let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown','ext': '.md'}]
