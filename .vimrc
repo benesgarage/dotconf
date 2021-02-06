@@ -27,6 +27,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Python auto-complete
 Plugin 'davidhalter/jedi-vim'
 
+" Vimwiki
+Plugin 'vimwiki/vimwiki'
+
 call vundle#end()
 
 " File type detection 
