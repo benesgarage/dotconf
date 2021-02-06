@@ -1,10 +1,6 @@
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/Projects/golang
-export GODEPPATH=/opt/go-dep
-export PATH=$GOPATH/bin:$GOROOT/bin:$GODEPPATH/bin:$PATH
-export EDITOR=vim
-export PATH="$HOME/.cargo/bin:$HOME/Downloads/GoLand/bin:$PATH"
+# .bash_profile: executed by bash on login shells.
 
+# Just include .profile and .bashrc
 if [ -f "$HOME/.profile" ]; then
 	. "$HOME/.profile"
 fi
