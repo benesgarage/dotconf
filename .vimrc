@@ -35,5 +35,20 @@ call vundle#end()
 " File type detection 
 filetype plugin indent on
 
+"
+" Plugin-specific configuration
+"
+
 " Force vimwiki to use MD
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown','ext': '.md'}]
+
+"
+" Mappings
+"
+
+" Convert MD to PDF
+autocmd FileType markdown nnoremap <buffer> <leader>pdf :exec '!mkdir -p ~/vim-output && pandoc % --pdf-engine=xelatex -o ~/vim-output/file.pdf -V geometry:margin=0.7in'<CR>
+
+" Convert MD to HTML5
+autocmd FileType markdown nnoremap <buffer> <leader>html :exec '!mkdir -p ~/vim-output && mkdir -p ~/vim-output/css && pandoc -s -f markdown -t html5 -o ~/vim-output/file.html -c ~/vim-output/css/bootstrap.min.css %'<CR>
+
