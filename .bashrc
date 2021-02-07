@@ -74,10 +74,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-if [ -f "$HOME/.bash_aliases" ]; then
-	. "$HOME/.bash_aliases"
-fi
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -91,4 +87,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Load aliases
+if [ -f "$HOME/.bash_aliases" ]; then
+	. "$HOME/.bash_aliases"
+fi
+
 
