@@ -4,13 +4,14 @@
 
 VUNDLE_PATH=~/.vim/bundle/Vundle.vim
 ST_PATH=~/github/LukeSmithxyz/st/
+VERSION=$(shell lsb_release -cs)
 
 up: update install # Do it
 
 update: # Update the system
 	sudo apt -y update && sudo apt -y upgrade
 
-install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc # Install core packages
+install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc docker # Install core packages
 
 python3-install: python3 pip3 virtualenv
 
@@ -49,3 +50,19 @@ pip3:
 
 virtualenv:
 	pip3 install virtualenv
+
+docker:
+	sudo apt -y install \
+		apt-transport-https \
+		ca-certificates \
+		curl \
+		gnupg-agent \
+		software-properties-common
+
+	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+	sudo add-apt-repository \
+	        "deb [arch=amd64] https://download.docker.com/linux/debian \
+		 ${VERSION} \
+		stable"
+	sudo apt -y update
+	sudo apt -y install docker-ce docker-ce-cli containerd.io
