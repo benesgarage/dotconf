@@ -30,6 +30,9 @@ Plugin 'davidhalter/jedi-vim'
 " Vimwiki
 Plugin 'vimwiki/vimwiki'
 
+" nerdtree
+Plugin 'preservim/nerdtree'
+
 call vundle#end()
 
 " File type detection 
@@ -52,3 +55,6 @@ autocmd FileType markdown nnoremap <buffer> <leader>pdf :exec '!mkdir -p ~/vim-o
 " Convert MD to HTML5
 autocmd FileType markdown nnoremap <buffer> <leader>html :exec '!mkdir -p ~/vim-output && mkdir -p ~/vim-output/css && pandoc -s -f markdown -t html5 -o ~/vim-output/file.html -c ~/vim-output/css/bootstrap.min.css %'<CR>
 
+" NERDTree mappings
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreee<CR>
