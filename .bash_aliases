@@ -7,8 +7,13 @@
 # git command for all dotconf files, anywhere
 alias dot='/usr/bin/env git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
 
-# configure autocompletion to alias
-__git_complete dot _git
+# setup autocompletion
+if [ -f "/usr/share/bash-completion/completions/git" ]; then
+	. /usr/share/bash-completion/completions/git
+	__git_complete dot _git
+else
+	echo "Error loading git completions"
+fi
 
 alias ll='ls -l'
 alias la='ls -A'
