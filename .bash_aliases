@@ -5,7 +5,11 @@
 #
 
 # git command for all dotconf files, anywhere
-alias dot='/usr/bin/git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
+alias dot='/usr/bin/env git --git-dir=/home/benes/.dotconf/ --work-tree=/home/benes'
+
+# configure autocompletion to alias
+__git_complete dot _git
+
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
