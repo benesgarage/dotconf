@@ -3,13 +3,14 @@
 #
 
 VUNDLE_PATH=~/.vim/bundle/Vundle.vim
+ST_PATH=~/github/LukeSmithxyz/st/
 
 up: update install # Do it
 
 update: # Update the system
 	sudo apt -y update && sudo apt -y upgrade
 
-install:  vim-install git-install vim-vundle-install vim-plugin-install xclip-install openvpn-install pandoc-install # Install all packages
+install:  vim-install git-install vim-vundle-install vim-plugin-install st-install xclip-install openvpn-install pandoc-install # Install all packages
 
 vim-install:
 	sudo apt install -y vim
@@ -23,6 +24,10 @@ vim-vundle-install:
 
 vim-plugin-install:
 	vim +PluginInstall +qall
+
+st-install: # Luke smith's version of st
+	-@test -f ${ST_PATH} && \
+		git clone -q https://github.com/LukeSmithxyz/st.git ${ST_PATH}
 
 xclip-install:
 	sudo apt install -y xclip
