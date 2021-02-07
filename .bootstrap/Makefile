@@ -10,32 +10,42 @@ up: update install # Do it
 update: # Update the system
 	sudo apt -y update && sudo apt -y upgrade
 
-install:  vim-install git-install vim-vundle-install vim-plugin-install st-install xclip-install openvpn-install pandoc-install # Install all packages
+install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc # Install core packages
 
-vim-install:
+python3-install: python3 pip3 virtualenv
+
+vim:
 	sudo apt install -y vim
 
-git-install:
+git:
 	sudo apt install -y git
 
-vim-vundle-install:
+vim-vundle:
 	-@test -f ${VUNDLE_PATH} && \
 		git clone -q https://github.com/VundleVim/Vundle.vim.git ${VUNDLE_PATH}
 
-vim-plugin-install:
+vim-plugin:
 	vim +PluginInstall +qall
 
-st-install: # Luke smith's version of st
+st: # Luke smith's version of st
 	-@test -f ${ST_PATH} && \
 		git clone -q https://github.com/LukeSmithxyz/st.git ${ST_PATH}
 
-xclip-install:
+xclip:
 	sudo apt install -y xclip
 
-openvpn-install:
+openvpn:
 	sudo apt install -y openvpn
 
-pandoc-install:
+pandoc:
 	sudo apt install -y pandoc \
 		texlive-xetex
 
+python3:
+	sudo apt install -y python3
+
+pip3:
+	sudo apt install -y python3-pip 
+
+virtualenv:
+	pip3 install virtualenv

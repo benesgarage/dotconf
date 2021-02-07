@@ -38,12 +38,18 @@ call vundle#end()
 " File type detection 
 filetype plugin indent on
 
+" pwd is always the current file's directory
+autocmd BufEnter * lcd %:p:h
+
 "
 " Plugin-specific configuration
 "
 
 " Force vimwiki to use MD
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown','ext': '.md'}]
+
+" Always open NERDTree if no file specified
+autocmd vimenter * if !argc() | NERDTree | endif
 
 "
 " Mappings
@@ -55,6 +61,7 @@ autocmd FileType markdown nnoremap <buffer> <leader>pdf :exec '!mkdir -p ~/vim-o
 " Convert MD to HTML5
 autocmd FileType markdown nnoremap <buffer> <leader>html :exec '!mkdir -p ~/vim-output && mkdir -p ~/vim-output/css && pandoc -s -f markdown -t html5 -o ~/vim-output/file.html -c ~/vim-output/css/bootstrap.min.css %'<CR>
 
-" NERDTree mappings
+" NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTreee<CR>
+nnoremap <C-n> :NERDTree<CR>
+
