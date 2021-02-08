@@ -13,6 +13,9 @@ set showcmd
 " Syntax highlighting
 syntax on
 
+" Markdown code block syntax highlighting
+let g:markdown_fenced_languages = ['python', 'php', 'html', 'c']
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -64,4 +67,4 @@ autocmd FileType markdown nnoremap <buffer> <leader>html :exec '!mkdir -p ~/vim-
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-
+nnoremap <C-t> :NERDTreeToggle<CR>

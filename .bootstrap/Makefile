@@ -1,22 +1,24 @@
 #
-# Personal environment setup makefile
+# Personal environment setup makefile (for Debian)
 #
 
 VUNDLE_PATH=~/.vim/bundle/Vundle.vim
 ST_PATH=~/github/LukeSmithxyz/st/
 VERSION=$(shell lsb_release -cs)
 
-up: update install # Do it
+up: update install config # Do it
 
 update: # Update the system
 	sudo apt -y update && sudo apt -y upgrade
 
-install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc docker # Install core packages
+install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc docker docker-compose # Install core packages
+
+config: docker-config # Configure core packages
 
 python3-install: python3 pip3 virtualenv
 
-vim:
-	sudo apt install -y vim
+vim: # Install vim-nox for support for scripting
+	sudo apt install -y vim-nox
 
 git:
 	sudo apt install -y git
@@ -66,3 +68,12 @@ docker:
 		stable"
 	sudo apt -y update
 	sudo apt -y install docker-ce docker-ce-cli containerd.io
+
+docker-config:
+	-@sudo groupadd docker
+	sudo usermod -aG docker $(USER)
+	@echo "You may need to logout/login for group changes to take permananent effect"
+
+docker-compose: # Install docker-compose (yes, it lacks a 'latest' tag :()
+	sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(shell uname -s)-$(shell uname -m)" -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
