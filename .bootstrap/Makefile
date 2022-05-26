@@ -11,7 +11,7 @@ up: update install config # Do it
 update: # Update the system
 	sudo apt -y update && sudo apt -y upgrade
 
-install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc docker docker-compose # Install core packages
+install:  vim git vim-vundle vim-plugin st xclip openvpn pandoc docker docker-compose ctags # Install core packages
 
 config: docker-config # Configure core packages
 
@@ -52,6 +52,9 @@ pip3:
 
 virtualenv:
 	pip3 install virtualenv
+
+ctags:
+	sudo apt install exhuberant-ctags
 
 docker:
 	sudo apt -y install \
