@@ -27,9 +27,6 @@ call vundle#begin()
 " Required by plug-in manager
 Plugin 'VundleVim/Vundle.vim'
 
-" Python auto-complete
-Plugin 'davidhalter/jedi-vim'
-
 " Vimwiki
 Plugin 'vimwiki/vimwiki'
 
